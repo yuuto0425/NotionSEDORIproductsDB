@@ -47,7 +47,7 @@ function WebForm() {
   const handleFormSubmit = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3001/createNotionPage`,
+        `http://localhost:3001/createNotionPage`|| `https://heavenly-bolder-repair.glitch.me/createNotionPage`,
         {
           product,
           asin,
