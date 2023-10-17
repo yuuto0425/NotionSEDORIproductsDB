@@ -47,7 +47,7 @@ function WebForm() {
   const handleFormSubmit = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3001/createNotionPage`|| `https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage`,
+        `https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage`||`http://localhost:3001/createNotionPage`,
         {
           product,
           asin,
