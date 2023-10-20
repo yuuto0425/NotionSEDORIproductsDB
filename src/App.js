@@ -85,7 +85,7 @@ function WebForm() {
       <h2>Web Form</h2>
       <form>
         <div className="form-input">
-          <label>商品名products</label>
+          <label>商品名</label>
           <input
             type="text"
             value={product}
