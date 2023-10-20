@@ -24,6 +24,11 @@ function WebForm() {
     return asin ? decodeURIComponent(asin).replace(/"/g, "") : "";
   };
 
+  const getStockPriceValue = () => {
+    const StockPriceValue = queryParams.get("stock-price");
+    return StockPriceValue ? decodeURIComponent(StockPriceValue).replace(/"/g, "") : "";
+  };
+
   const textAreaRef = useRef(null);
 
   const handleCopyToClipboard = async () => {
@@ -38,6 +43,7 @@ function WebForm() {
 
   const [product, setProduct] = useState(getProductValue());
   const [asin, setASIN] = useState(getASINValue());
+  const [StockPriceValue, setStockPriceValue] = useState(getStockPriceValue());
 
   const [feedback, setFeedback] = useState(""); // 感想をクエリパラメーターから取得しない
 
@@ -51,6 +57,7 @@ function WebForm() {
         {
           product,
           asin,
+          StockPriceValue,
           feedback,
         }
       );
@@ -91,6 +98,14 @@ function WebForm() {
             type="text"
             value={asin}
             onChange={(e) => setASIN(e.target.value)}
+          />
+        </div>
+        <div className="form-input">
+          <label>仕入れ値</label>
+          <input
+            type="text"
+            value={StockPriceValue}
+            onChange={(e) => setStockPriceValue(e.target.value)}
           />
         </div>
 
