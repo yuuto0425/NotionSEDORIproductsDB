@@ -41,6 +41,7 @@ function WebForm() {
       const textToCopy = textAreaRef.current.value;
       await copy(textToCopy);
       alert("テキストがクリップボードにコピーされました");
+      setIsCopyButtonClicked(true); // コピーが成功したら状態を更新
     } catch (error) {
       alert("クリップボードへのコピーに失敗しました");
     }
@@ -176,6 +177,7 @@ function WebForm() {
         <div>
           <textarea ref={textAreaRef} defaultValue={feedText} />
           <button
+            className={`onCopy ${isCopyButtonClicked ? "copiedButton" : ""}`}
             onClick={handleCopyToClipboard}
           >
             クリップボードにコピー
