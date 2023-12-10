@@ -55,7 +55,7 @@ function WebForm() {
   const [feedText, setFeedText] = useState("");
 
   const [selectedPurpose, setSelectedPurpose] = useState([]);
-  
+
   const [checkedItems, setCheckedItems] = useState({
     negotiationEvidence: false,
     trimming: false,
@@ -81,10 +81,10 @@ function WebForm() {
           [selectedPurpose]: checkedItems[selectedPurpose],
         }));
 
-
-        // `https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage` 
-      const response = await axios.post(`https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage` ||
-        `http://localhost:3001/createNotionPage`,
+      // `https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage`
+      const response = await axios.post(
+        `https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage` ||
+          `http://localhost:3001/createNotionPage`,
         {
           product,
           asin,
@@ -131,7 +131,7 @@ function WebForm() {
       setSelectedPurpose([...selectedPurpose, value]);
     }
   };
-  console.log(selectedPurpose,setSelectedPurpose)
+  console.log(selectedPurpose, setSelectedPurpose);
 
   return (
     <div className="form-container">
@@ -153,22 +153,6 @@ function WebForm() {
           />
         </div>
         <div className="form-input">
-          <label>商品名</label>
-          <input
-            type="text"
-            value={product}
-            onChange={(e) => setProduct(e.target.value)}
-          />
-        </div>
-        <div className="form-input">
-          <label>ASIN</label>
-          <input
-            type="text"
-            value={asin}
-            onChange={(e) => setASIN(e.target.value)}
-          />
-        </div>
-        <div className="form-input">
           <label>目的別</label>
           <div className="checkbox-options">
             {purposeOptions.map((purpose) => (
@@ -184,19 +168,40 @@ function WebForm() {
             ))}
           </div>
         </div>
+        <div>
+          <button type="button" onClick={handleFormSubmit}>
+            送信
+          </button>
+        </div>
+        <div>
+          <textarea ref={textAreaRef} defaultValue={feedText} />
+          <button
+            className={`onCopy ${isCopyButtonClicked ? "copiedButton" : ""}`}
+            onClick={handleCopyToClipboard}
+          >
+            クリップボードにコピー
+          </button>
+        </div>
+         <div className="form-input">
+          <label>商品名</label>
+          <input
+            type="text"
+            value={product}
+            onChange={(e) => setProduct(e.target.value)}
+          />
+        </div>
+        <div className="form-input">
+          <label>ASIN</label>
+          <input
+            type="text"
+            value={asin}
+            onChange={(e) => setASIN(e.target.value)}
+          />
+        </div>
       </form>
       {/* <div className="form-input">
         <Link to={`/form?product=${product}&asin=${asin}`}>保存</Link>
       </div> */}
-      <div>
-        <button type="button" onClick={handleFormSubmit}>
-          送信
-        </button>
-      </div>
-      <div>
-        <textarea ref={textAreaRef} defaultValue={feedText} />
-        <button className={`onCopy ${isCopyButtonClicked ? "copiedButton" : ""}`} onClick={handleCopyToClipboard}>クリップボードにコピー</button>
-      </div>
     </div>
   );
 }
