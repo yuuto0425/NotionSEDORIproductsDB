@@ -30,6 +30,7 @@ body {
 }
 
 .form-input input,
+.form-input select option
 .form-input textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -52,6 +53,30 @@ body {
   font-size: 18px;
   cursor: pointer;
   width: 100%;
+}
+
+.form-input .checkbox-label {
+  display: flex;
+  flex-direction: row-reverse ;
+  align-items: center;
+}
+.form-input .checkbox-label p {
+  margin: 0;
+  padding: 10px 0;
+  width: 100%;
+}
+.form-input .checkbox-label input {
+  width: 30px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+}
+
+.onCopy.copiedButton {
+  background-color: #dde8be;
+  color: red;
 }
 
 /* スマートフォン向けのスタイル（最大幅 768px 以下） */
