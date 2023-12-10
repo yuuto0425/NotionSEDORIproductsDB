@@ -1,11 +1,12 @@
 /* App.css */
 
-html {
-  touch-action: manipulation;
-}
+
 input textarea {
   font-size: 16px;
   /* transform: scale(0.8); */
+}
+textarea {
+  font-size: 18px;
 }
 
 /* フォーム全体のスタイル */
