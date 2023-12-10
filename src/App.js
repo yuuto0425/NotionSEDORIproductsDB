@@ -47,6 +47,17 @@ function WebForm() {
     }
   };
 
+
+  //スマホでフォームの拡大を無効化にする
+  const touchHandler = (event) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  };
+  document.addEventListener('touchstart', touchHandler, {
+    passive: false
+  });
+
   const [product, setProduct] = useState(getProductValue());
   const [asin, setASIN] = useState(getASINValue());
   const [StockPriceValue, setStockPriceValue] = useState(getStockPriceValue());
