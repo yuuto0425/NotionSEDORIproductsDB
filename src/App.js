@@ -83,7 +83,7 @@ function WebForm() {
 
 
         // `https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage` 
-      const response = await axios.post(
+      const response = await axios.post(`https://notion-products-db-server-app-bee944b6684d.herokuapp.com/createNotionPage` ||
         `http://localhost:3001/createNotionPage`,
         {
           product,
