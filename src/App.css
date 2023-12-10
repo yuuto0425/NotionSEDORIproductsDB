@@ -1,5 +1,9 @@
 /* App.css */
 
+html {
+  touch-action: manipulation;
+}
+
 /* フォーム全体のスタイル */
 body {
   font-family: Arial, sans-serif;
