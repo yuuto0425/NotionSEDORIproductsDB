@@ -35,7 +35,8 @@ function WebForm() {
 
   const [isCopyButtonClicked, setIsCopyButtonClicked] = useState(false);
 
-  const handleCopyToClipboard = async () => {
+  const handleCopyToClipboard = async (e) => {
+    e.preventDefault();
     try {
       const textToCopy = textAreaRef.current.value;
       await copy(textToCopy);
